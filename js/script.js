@@ -1,10 +1,40 @@
+// Objeto para almacenar el usuario registrado
+let usuarioRegistrado = null;
+
+// Función para registrar un nuevo usuario
+function registrarUsuario() {
+  let nombre = prompt("Ingrese su nombre:");
+  let apellido = prompt("Ingrese su apellido:");
+  const dni = prompt("Ingrese su DNI:");
+
+  // Convertir la primera letra del nombre y el apellido a mayúscula
+  nombre = nombre.charAt(0).toUpperCase() + nombre.slice(1);
+  apellido = apellido.charAt(0).toUpperCase() + apellido.slice(1);
+
+  usuarioRegistrado = {
+    nombre: nombre,
+    apellido: apellido,
+    dni: dni
+  };
+
+  console.log("Usuario registrado exitosamente.");
+  console.log("Datos del usuario:");
+  console.log("Nombre: " + usuarioRegistrado.nombre);
+  console.log("Apellido: " + usuarioRegistrado.apellido);
+  console.log("DNI: " + usuarioRegistrado.dni);
+}
+
+registrarUsuario();
+
+//cometar separacion
+
 let prestamo = prompt("¿De cuánto dinero sería su préstamo?");
 prestamo = parseFloat(prestamo);
 
 if (isNaN(prestamo)) {
   console.log("Por favor, ingrese un número válido para el monto del préstamo.");
 } else if (prestamo < 4000) {
-  console.log("El monto mínimo de préstamo es de 4000 pesos.");
+  console.log("El monto mínimo de préstamo es de $4000 pesos.");
 } else {
   let mesesAPagar = prompt("¿En cuántos meses quiere devolverlo?");
   mesesAPagar = parseInt(mesesAPagar);
@@ -33,3 +63,5 @@ function validarMeses(meses) {
   }
   return meses;
 }
+
+
