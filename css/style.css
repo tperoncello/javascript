@@ -1,34 +1,306 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: auto;
-  }
+    box-sizing: border-box; /* Cambiado a "border-box" para incluir el padding en el ancho */
+}
 
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(192, 192, 192);
+    /* background-color:#d7cfeb; */
+    background-color: #546489;
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+}
+
+/* .main-login {
+    height: 110vh;
+} */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0; /* Agregado "left: 0" para asegurarse de que esté pegado en el lateral */
+    /* background-color: rgba(255, 255, 255, 0.9); Agregado un fondo semi-transparente */
+    /* background: linear-gradient(90deg,#4e009a, #ffffff); */
+    background: linear-gradient(90deg,#032144,#546489);
+    /* #171437 */
+    width: 100%;
+    z-index: 1000; /* Ajustado el z-index a 1000 */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Agregado sombra para destacar */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 40px;
+}
+
+.navbar-logo {
+    width: 40%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-logo img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.navbar-logo h2 {
+    font-size: 40px;
+    color:#54e5ff;
+    /* text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); */
+}
+
+.navbar-links {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px; /* Agregado un espacio entre los botones y el borde de la barra */
+    gap: 20px;
+}
+
+.navbar-links a {
+    padding: 5px 20px;
+    font-size: 35px;
+    text-decoration: none;
+    color: #000;
+    border-bottom: solid 3px #000;
+    border-radius: 0px;
+    transition: 0.5s;
+}
+
+.navbar-links a:hover {
+    color: #54e5ff;
+    border-bottom: solid 3px #54e5ff;
+}
+
+main {
+    position: relative; /* Asegurarse de que el contenido principal tenga una posición */
+    z-index: 0;
+    margin-top: 60px; /* Dar espacio para la barra de navegación */
 }
 
 .jugo {
-    background-color: rgb(84, 94, 134);
+    /* background-color: rgb(84, 94, 134); */
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5%;
-    height: 100vh;
+    flex-direction: column;
+    height: auto;
+    padding: 50px; /* Agregado espacio alrededor del contenido */
+    box-sizing: border-box; /* Asegurarse de que el padding no afecte el tamaño total */
 }
 
-.jugo img {
-    width: 500px;
-    height: 300px;
+.jugo div {
+    width: 550px;
+    height: 115vh;
     object-fit: cover;
     border-radius: 8%;
+    padding-bottom: 30%;
+}
+
+.background-image {
+    position: absolute;
+    top: 20%;
+    right: 1%;
+    width: 99%;
+    height: 100%;
+    background-image: url('../asets/banco3.jpg');
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el espacio */
+    background-position: center; /* Centra la imagen verticalmente y horizontalmente */
+    z-index: -1;
 }
 
 .jugo h1 {
+    width: 90%;
     text-align: center;
     font-size: 40px;
     font-weight: 900;
     color: rgb(1, 0, 9);
+    margin-bottom: 20px; /* Agregado espacio inferior */
+}
 
+/* formulario */
+
+/* .form-box {
+    max-width: 600px;
+    background: #f1f7fe;
+    overflow: hidden;
+    border-radius: 16px;
+    color: #010101;
+    margin: 30px;
+  }
+  
+  .form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px 24px;
+    gap: 16px;
+    text-align: center;
+  }
+  
+  Form text
+  .title {
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  Inputs box
+  .form-container {
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 1rem 0 .5rem;
+    width: 100%;
+  }
+  
+  .input {
+    background: none;
+    border: 0;
+    outline: 0;
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    font-size: .9rem;
+    padding: 8px 15px;
+  }
+  
+  .form-section {
+    padding: 16px;
+    font-size: .85rem;
+    background-color: #e0ecfb;
+    box-shadow: rgb(0 0 0 / 8%) 0 -1px;
+  }
+  
+  .form-section a {
+    font-weight: bold;
+    color: #0066ff;
+    transition: color .3s ease;
+  }
+  
+  .form-section a:hover {
+    color: #005ce6;
+    text-decoration: underline;
+  }
+  
+  Button
+  .form button {
+    background-color: #0066ff;
+    color: #fff;
+    border: 0;
+    border-radius: 24px;
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .3s ease;
+  }
+  
+  .form button:hover {
+    background-color: #005ce6;
+  } */
+
+  #wrapper {
+    border: 1px solid #ccc;
+    height: 350px;
+    margin: 0 auto;
+    position: absolute;
+    top: 500px;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 680px;
+}
+#wrapper input[type="radio"] {
+    display: none;
+}
+#wrapper input[type="radio"][value="login"]:checked ~ .form-wrapper {
+    margin-left: 50%;
+}
+#wrapper input[type="radio"][value="login"]:checked ~ .form-wrapper .input-hidden {
+    margin-top: -130px;
+}
+#wrapper input[type="radio"][value="login"]:checked ~ .form-wrapper .button-hidden button:first-child {
+    margin-top: -44px;
+}
+.labelWrapper {
+    float: left;
+    height: 100%;
+    padding-top: 240px;
+    text-align: center;
+    width: 50%;
+}
+.labelWrapper:first-of-type {
+    background-color: #eee;
+}
+.labelWrapper label {
+    border: 1px solid #54e5ff;
+    color: #54e5ff;
+    display: inline-block;
+    padding: 15px 0;
+    text-align: center;
+    transition: all 0.5s;
+    width: 150px;
+}
+.labelWrapper label:hover {
+    background-color: #54e5ff;
+    color: #fff;
+}
+.form-wrapper {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    left: 20px;
+    padding: 0 40px;
+    position: absolute;
+    top: -50px;
+    transition: margin 0.5s;
+    width: 300px;
+}
+.form-wrapper form {
+    height: 350px;
+    overflow: hidden;
+    padding: 30px 0;
+    position: relative;
+}
+.form-wrapper form input {
+    border-bottom: 1px solid #ccc;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin-bottom: 35px;
+    padding: 5px 10px;
+    width: 100%;
+}
+.form-wrapper form input:focus {
+    outline: none;
+}
+.form-wrapper form .input-hidden {
+    transition: margin 0.5s;
+}
+.form-wrapper form .button-hidden {
+    background-color: #54e5ff;
+    border-radius: 5px;
+    bottom: 30px;
+    height: 44px;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+.form-wrapper form .button-hidden button {
+    background: transparent;
+    border: 0;
+    color: #fff;
+    display: block;
+    transition: margin 0.5s;
+    padding: 10px 0;
+    width: 100%;
 }
