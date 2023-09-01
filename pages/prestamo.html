@@ -3,24 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../asets/favicon.ico" type="image/x-icon">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/style.css">
         <title>Cotiza tu prestamo</title>
     </head>
     <body>
         <header>
-            <nav>
-                <li>
-                    <ol>
-                        <a href="info.html">Nuestro banco</a>
-                    </ol>
-                    <ol>
-                        <a href="prestamo.html">prestamo</a>
-                    </ol>
-                    <ol>
-                        <a href="../index.html">Login</a>
-                    </ol>
-                </li>
+            <nav class="navbar">
+                <div class="navbar-logo">
+                    <img src="../asets/chanchosinfondo.png" alt="Logo">
+                    <h2>PrestaPlus</h2>
+                </div>
+                <div class="navbar-links">
+                    <a href="../pages/info.html">Nuestro banco</a>
+                    <a href="../pages/prestamo.html">Préstamo</a>
+                    <a href="../index.html">Login</a>
+                </div> 
             </nav>
         </header>
 
@@ -47,12 +46,149 @@
               <p id="selectedMonths"></p>
               <p id="monthlyPayment"></p>
             </div> -->
+<br><br><br><br><br>
+            
+            <!-- <input type="email" id="" placeholder="Correo Electrónico" />
+            <input type="password" id="" placeholder="Contraseña" /> -->
+
+            <!-- <div class="row">
+                <h3>PLAZO: <span id="plazo">18 Meses</span></h3>
+                <div class="row barra plazos">
+                    <div class="col-2">
+                        <input type="radio" class="radio" name="plazo" value="3" id="plazo3" checked>
+                        <label for="plazo3">3 cuotas</label>
+                    </div>
+                    <div class="col-2">
+                        <input type="radio" class="radio" name="plazo" value="6" id="plazo6">
+                        <label for="plazo6">6 cuotas</label>
+                    </div>
+                    <div class="col-2">
+                        <input type="radio" class="radio" name="plazo" value="9" id="plazo9">
+                        <label for="plazo9">9 cuotas</label>
+                    </div>
+                    <div class="col-2">
+                        <input type="radio" class="radio" name="plazo" value="12" id="plazo12">
+                        <label for="plazo12">12 cuotas</label>
+                    </div>
+                    <div class="col-2">
+                        <input type="radio" class="radio" name="plazo" value="18" id="plazo18">
+                        <label for="plazo18">18 cuotas</label>
+                    </div>
+                    <div class="col-2">
+                        <input type="radio" class="radio" name="plazo" value="24" id="plazo24">
+                        <label for="plazo24">24 cuotas</label>
+                    </div>
+                </div> -->
+
+                <!-- <input class="cuotas-prestamo" type="number" id="prestamo-cuotas" placeholder="Cuotas" /> -->
+
+
+
+
+
+
+
+                <!-- <div class="input-hidden">
+                    <p>¿De cuánto dinero sería su préstamo? (el mínimo es $4000)</p>
+                    <input class="dinero-prestamo" type="number" id="prestamo-dinero" placeholder="préstamo" />
+                </div>
+            
+                <div id="simulador-credito">
+                    <div class="row">
+                        <div class="barra-monto"></div>
+                    </div>
+                    <div class="row">
+                        <h3>PLAZO:<span id="plazo"></span></h3>
+                        <div class="row barra plazos">
+                            <div class="col-2 text-left">
+                                <input type="radio" class="radio" name="plazo" value="12" id="plazo12" checked />
+                                <label for="plazo12"></label>
+                            </div>
+                            <div class="col-2 l-1">
+                                <input type="radio" class="radio" name="plazo" value="18" id="plazo18" />
+                                <label for="plazo18"></label>
+                            </div>
+                            <div class="col-2 l-2">
+                                <input type="radio" class="radio" name="plazo" value="24" id="plazo24" />
+                                <label for="plazo24"></label>
+                            </div>
+                            <div class="col-2 l-3">
+                                <input type="radio" class="radio" name="plazo" value="36" id="plazo36" />
+                                <label for="plazo36"></label>
+                            </div>
+                            <div class="col-2 l-4">
+                                <input type="radio" class="radio" name="plazo" value="48" id="plazo48" />
+                                <label for="plazo48"></label>
+                            </div>
+                            <div class="col-2 text-right">
+                                <input type="radio" class="radio" name="plazo" value="60" id="plazo60" />
+                                <label for="plazo60"></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 rangelabel text-left">12</div>
+                            <div class="col-2 rangelabel l-1">18</div>
+                            <div class="col-2 rangelabel l-2">24</div>
+                            <div class="col-2 rangelabel l-3">36</div>
+                            <div class="col-2 rangelabel l-4">48</div>
+                            <div class="col-2 rangelabel text-right">60</div>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <p>Cuota fija por mes de <span id="cuota"></span></p>
+                    </div>
+                </div>
+            
+                <button type="button" onClick="prestamo()">Calcular préstamo</button> -->
+
+                <div class="container">
+                    <h1 class="header">Calculadora de Préstamos</h1>
+                    <div class="input-group">
+                        <label for="prestamo-dinero">¿De cuánto dinero sería su préstamo? (el mínimo es $4000)</label>
+                        <input class="dinero-prestamo" type="number" id="prestamo-dinero" placeholder="préstamo" min="4000" max="10000000" />
+                        
+                    </div>
+            
+                    <div class="loan-options">
+                        <div class="row barra plazos">
+                            <div class="col-2">
+                                <input type="radio" class="radio-input" name="plazo" value="3" id="plazo3" checked>
+                                <label class="radio-label" for="plazo3">3 cuotas</label>
+                            </div>
+                            <div class="col-2">
+                                <input type="radio" class="radio-input" name="plazo" value="6" id="plazo6">
+                                <label class="radio-label" for="plazo6">6 cuotas</label>
+                            </div>
+                            <div class="col-2">
+                                <input type="radio" class="radio-input" name="plazo" value="9" id="plazo9">
+                                <label class="radio-label" for="plazo9">9 cuotas</label>
+                            </div>
+                            <div class="col-2">
+                                <input type="radio" class="radio-input" name="plazo" value="12" id="plazo12">
+                                <label class="radio-label" for="plazo12">12 cuotas</label>
+                            </div>
+                            <div class="col-2">
+                                <input type="radio" class="radio-input" name="plazo" value="18" id="plazo18">
+                                <label class="radio-label" for="plazo18">18 cuotas</label>
+                            </div>
+                            <div class="col-2">
+                                <input type="radio" class="radio-input" name="plazo" value="24" id="plazo24">
+                                <label class="radio-label" for="plazo24">24 cuotas</label>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <button id="calcular" class="calculate-button">Calcular préstamo</button>
+            
+                    <div class="result" id="cuota-result"></div>
+                </div>
           </main>
           
         <footer>
         </footer>
 
-            <script src="js/script.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="../js/script-prestamo.js"></script>
     </body>
 </html>

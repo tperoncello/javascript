@@ -1,32 +1,23 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Cambiado a "border-box" para incluir el padding en el ancho */
+    box-sizing: border-box; 
 }
 
 body {
     font-family: Arial, sans-serif;
-    /* background-color:#d7cfeb; */
     background-color: #546489;
     overflow-x: hidden;
-    /* overflow-y: hidden; */
 }
-
-/* .main-login {
-    height: 110vh;
-} */
 
 .navbar {
     position: fixed;
     top: 0;
-    left: 0; /* Agregado "left: 0" para asegurarse de que esté pegado en el lateral */
-    /* background-color: rgba(255, 255, 255, 0.9); Agregado un fondo semi-transparente */
-    /* background: linear-gradient(90deg,#4e009a, #ffffff); */
+    left: 0; 
     background: linear-gradient(90deg,#032144,#546489);
-    /* #171437 */
     width: 100%;
-    z-index: 1000; /* Ajustado el z-index a 1000 */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Agregado sombra para destacar */
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -50,7 +41,6 @@ body {
 .navbar-logo h2 {
     font-size: 40px;
     color:#54e5ff;
-    /* text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); */
 }
 
 .navbar-links {
@@ -58,7 +48,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 10px; /* Agregado un espacio entre los botones y el borde de la barra */
+    padding: 10px; 
     gap: 20px;
 }
 
@@ -78,21 +68,20 @@ body {
 }
 
 main {
-    position: relative; /* Asegurarse de que el contenido principal tenga una posición */
+    position: relative; 
     z-index: 0;
-    margin-top: 60px; /* Dar espacio para la barra de navegación */
+    margin-top: 60px; 
 }
 
 .jugo {
-    /* background-color: rgb(84, 94, 134); */
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: auto;
-    padding: 50px; /* Agregado espacio alrededor del contenido */
-    box-sizing: border-box; /* Asegurarse de que el padding no afecte el tamaño total */
+    padding: 50px;
+    box-sizing: border-box; 
 }
 
 .jugo div {
@@ -110,8 +99,8 @@ main {
     width: 99%;
     height: 100%;
     background-image: url('../asets/banco3.jpg');
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el espacio */
-    background-position: center; /* Centra la imagen verticalmente y horizontalmente */
+    background-size: cover; /* cover ajusta el tamaño de la imagen para cubrir el espacio */
+    background-position: center; 
     z-index: -1;
 }
 
@@ -121,94 +110,8 @@ main {
     font-size: 40px;
     font-weight: 900;
     color: rgb(1, 0, 9);
-    margin-bottom: 20px; /* Agregado espacio inferior */
+    margin-bottom: 20px; 
 }
-
-/* formulario */
-
-/* .form-box {
-    max-width: 600px;
-    background: #f1f7fe;
-    overflow: hidden;
-    border-radius: 16px;
-    color: #010101;
-    margin: 30px;
-  }
-  
-  .form {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 32px 24px 24px;
-    gap: 16px;
-    text-align: center;
-  }
-  
-  Form text
-  .title {
-    font-weight: bold;
-    font-size: 1.6rem;
-  }
-  
-  .subtitle {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  Inputs box
-  .form-container {
-    overflow: hidden;
-    border-radius: 8px;
-    background-color: #fff;
-    margin: 1rem 0 .5rem;
-    width: 100%;
-  }
-  
-  .input {
-    background: none;
-    border: 0;
-    outline: 0;
-    height: 40px;
-    width: 100%;
-    border-bottom: 1px solid #eee;
-    font-size: .9rem;
-    padding: 8px 15px;
-  }
-  
-  .form-section {
-    padding: 16px;
-    font-size: .85rem;
-    background-color: #e0ecfb;
-    box-shadow: rgb(0 0 0 / 8%) 0 -1px;
-  }
-  
-  .form-section a {
-    font-weight: bold;
-    color: #0066ff;
-    transition: color .3s ease;
-  }
-  
-  .form-section a:hover {
-    color: #005ce6;
-    text-decoration: underline;
-  }
-  
-  Button
-  .form button {
-    background-color: #0066ff;
-    color: #fff;
-    border: 0;
-    border-radius: 24px;
-    padding: 10px 16px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color .3s ease;
-  }
-  
-  .form button:hover {
-    background-color: #005ce6;
-  } */
 
   #wrapper {
     border: 1px solid #ccc;
@@ -220,18 +123,23 @@ main {
     transform: translateY(-50%);
     width: 680px;
 }
+
 #wrapper input[type="radio"] {
     display: none;
 }
+
 #wrapper input[type="radio"][value="login"]:checked ~ .form-wrapper {
     margin-left: 50%;
 }
+
 #wrapper input[type="radio"][value="login"]:checked ~ .form-wrapper .input-hidden {
     margin-top: -130px;
 }
+
 #wrapper input[type="radio"][value="login"]:checked ~ .form-wrapper .button-hidden button:first-child {
     margin-top: -44px;
 }
+
 .labelWrapper {
     float: left;
     height: 100%;
@@ -239,9 +147,11 @@ main {
     text-align: center;
     width: 50%;
 }
+
 .labelWrapper:first-of-type {
     background-color: #eee;
 }
+
 .labelWrapper label {
     border: 1px solid #54e5ff;
     color: #54e5ff;
@@ -251,10 +161,12 @@ main {
     transition: all 0.5s;
     width: 150px;
 }
+
 .labelWrapper label:hover {
     background-color: #54e5ff;
     color: #fff;
 }
+
 .form-wrapper {
     background-color: #fff;
     border: 1px solid #ccc;
@@ -265,12 +177,14 @@ main {
     transition: margin 0.5s;
     width: 300px;
 }
+
 .form-wrapper form {
     height: 350px;
     overflow: hidden;
     padding: 30px 0;
     position: relative;
 }
+
 .form-wrapper form input {
     border-bottom: 1px solid #ccc;
     border-left: 0;
@@ -280,12 +194,15 @@ main {
     padding: 5px 10px;
     width: 100%;
 }
+
 .form-wrapper form input:focus {
     outline: none;
 }
+
 .form-wrapper form .input-hidden {
     transition: margin 0.5s;
 }
+
 .form-wrapper form .button-hidden {
     background-color: #54e5ff;
     border-radius: 5px;
@@ -295,6 +212,7 @@ main {
     position: absolute;
     width: 100%;
 }
+
 .form-wrapper form .button-hidden button {
     background: transparent;
     border: 0;
@@ -304,3 +222,120 @@ main {
     padding: 10px 0;
     width: 100%;
 }
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #54e5ff;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.loan-options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.loan-option {
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.loan-option:hover {
+    background-color:  #54e5ff;
+    color: white;
+}
+
+.result {
+    text-align: center;
+    font-size: 24px;
+    color: #54e5ff;
+    margin-top: 20px;
+}
+
+.calculate-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #54e5ff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.loan-option {
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.loan-option.active {
+    background-color:  #54e5ff;
+    color: white;
+}
+
+.radio-input {
+    display: none;
+}
+
+.radio-label {
+    display: inline-block;
+    margin: 0;
+    width: 109px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.radio-input:checked + .radio-label,
+.loan-option.active {
+    background-color: #54e5ff;
+    color: white;
+}
+
+col-2 {
+    flex: 0 0 auto;
+    width: 16.6%;}
+
+    h2:where(.swal2-title) {
+        color: black;
+    }
+
+    .color-de-fondo .swal-title {
+        background-color: #2e3d5b !important;
+      }

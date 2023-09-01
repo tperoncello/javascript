@@ -1,17 +1,16 @@
-// Objeto para almacenar el usuario registrado
-let usuarioRegistrado = null;
+const body = document.body;
+// Array para almacenar usuarios registrados
+let usuariosRegistrados = [];
 
 // Cargar datos almacenados en Local Storage al cargar la página
 document.addEventListener("DOMContentLoaded", function () {
-  cargarDatosUsuario();
+  cargarDatosUsuarios();
 });
 
 // Función para cargar datos almacenados en Local Storage
-function cargarDatosUsuario() {
-  const usuarioGuardadoJSON = localStorage.getItem("usuarioRegistrado");
-  if (usuarioGuardadoJSON) {
-    usuarioRegistrado = JSON.parse(usuarioGuardadoJSON);
-  }
+function cargarDatosUsuarios() {
+  const usuariosGuardadosJSON = localStorage.getItem("usuariosRegistrados");
+  usuariosRegistrados = JSON.parse(usuariosGuardadosJSON) || [];
 }
 
 // Función para registrar un nuevo usuario
@@ -22,33 +21,47 @@ function registrarUsuario() {
   const password = document.getElementById("passwordInput").value;
 
   if (!nombre || !apellido || !email || !password) {
-    alert("Por favor, complete todos los campos.");
+    Swal.fire({
+      icon: 'error',
+      title: 'Por favor complete todos los campos requeridos',
+      customClass: {
+        title: 'color-de-fondo' 
+      }
+    });
     return;
   }
 
   if (!isValidEmail(email)) {
-    alert("Por favor, ingrese una dirección de correo electrónico válida.");
+    Swal.fire({
+      icon: 'error',
+      title: 'Por favor ingrese una cuenta de correo válida',
+      customClass: {
+        title: 'color-de-fondo' 
+      }
+    });
     return;
   }
 
-  const nombreCapitalizado = nombre.charAt(0).toUpperCase() + nombre.slice(1);
-  const apellidoCapitalizado = apellido.charAt(0).toUpperCase() + apellido.slice(1);
+  const nombreCapitalizado = (nombre.charAt(0).toUpperCase() + nombre.slice(1)) ?? '';
+  const apellidoCapitalizado = (apellido.charAt(0).toUpperCase() + apellido.slice(1)) ?? '';
 
-  usuarioRegistrado = {
+  const nuevoUsuario = {
     nombre: nombreCapitalizado,
     apellido: apellidoCapitalizado,
     email: email,
     password: password
   };
 
-  const usuarioRegistradoJSON = JSON.stringify(usuarioRegistrado);
-  localStorage.setItem("usuarioRegistrado", usuarioRegistradoJSON);
+  usuariosRegistrados.push(nuevoUsuario);
+
+  const usuariosRegistradosJSON = JSON.stringify(usuariosRegistrados);
+  localStorage.setItem("usuariosRegistrados", usuariosRegistradosJSON);
 
   console.log("Usuario registrado exitosamente.");
   console.log("Datos del usuario:");
-  console.log("Nombre: " + usuarioRegistrado.nombre);
-  console.log("Apellido: " + usuarioRegistrado.apellido);
-  console.log("Correo Electrónico: " + usuarioRegistrado.email);
+  console.log("Nombre: " + nuevoUsuario.nombre);
+  console.log("Apellido: " + nuevoUsuario.apellido);
+  console.log("Correo Electrónico: " + nuevoUsuario.email);
 
   // Redirigir a la página de préstamo después del registro exitoso
   window.location.href = "pages/prestamo.html"; // Cambia esto por la URL correcta
@@ -65,51 +78,30 @@ function logIn() {
   const email = document.getElementById("emailInput").value;
   const password = document.getElementById("passwordInput").value;
 
-  const usuarioGuardadoJSON = localStorage.getItem("usuarioRegistrado");
-  if (usuarioGuardadoJSON) {
-    const usuarioGuardado = JSON.parse(usuarioGuardadoJSON);
-    if (usuarioGuardado.email === email && usuarioGuardado.password === password) {
-      console.log("Inicio de sesión exitoso.");
-      console.log("Bienvenido, " + usuarioGuardado.nombre + " " + usuarioGuardado.apellido + "!");
-      window.location.href = "pages/prestamo.html"; // Redirigir después del inicio de sesión exitoso
-    } else {
-      console.log("Correo electrónico o contraseña incorrectos.");
-      // Agregar aquí un mensaje en la página para mostrar el error al usuario si lo deseas
-    }
+  const usuarioGuardado = usuariosRegistrados.find((usuario) => usuario.email === email && usuario.password === password);
+
+  if (usuarioGuardado) {
+    console.log("Inicio de sesión exitoso.");
+    console.log("Bienvenido, " + usuarioGuardado.nombre + " " + usuarioGuardado.apellido + "!");
+    window.location.href = "pages/prestamo.html"; // Redirigir después del inicio de sesión exitoso
   } else {
-    console.log("No se encontró ningún usuario registrado.");
+    Swal.fire({
+      icon: 'error',
+      title: 'Correo electrónico o contraseña no registrados.',
+      customClass: {
+        title: 'color-de-fondo' 
+      }
+    });
+    // Agregar aquí un mensaje en la página para mostrar el error al usuario si lo deseas
   }
 }
 
-
-
-// Array con la cantidad de cuotas disponibles
-const cuotasDisponibles = [3, 6, 9, 12, 18, 24];
-
-let prestamo = prompt("¿De cuánto dinero sería su préstamo?");
-prestamo = parseFloat(prestamo);
-
-if (isNaN(prestamo)) {
-  console.log("Por favor, ingrese un número válido para el monto del préstamo.");
-} else if (prestamo < 4000) {
-  console.log("El monto mínimo de préstamo es de $4000 pesos.");
-} else {
-  let mesesAPagar = prompt("¿En cuántos meses quiere devolverlo? Elija 3, 6, 9, 12, 18 o 24 cuotas");
-  mesesAPagar = parseInt(mesesAPagar);
-
-  // Validar que el número de cuotas sea válido
-  while (!cuotasDisponibles.includes(mesesAPagar)) {
-    mesesAPagar = prompt("Por favor, elija un número de cuotas válido. Elija 3, 6, 9, 12, 18 o 24 cuotas");
-    mesesAPagar = parseInt(mesesAPagar);
-  }
-
-  let interesPorcentaje = 1.40 + (mesesAPagar - 1) * 0.05; // Aumento del 5% por cada mes adicional
-  let totalPagar = prestamo * interesPorcentaje + mesesAPagar * 0.80;
-  let mensaje = "Usted debe pagar " + totalPagar.toFixed(2) + " pesos.";
-  let mensaje2 = "Usted seleccionó " + mesesAPagar + " meses a pagar.";
-  let mensaje3 = "El pago mensual sería de " + (totalPagar / mesesAPagar).toFixed(2) + " pesos.";
-
-  console.log(mensaje);
-  console.log(mensaje2);
-  console.log(mensaje3);
-}
+// Crear el pie de página
+const footer = document.createElement('footer');
+footer.style.textAlign = 'center';
+footer.style.marginTop = '500px';
+const footerText = document.createElement('p');
+footerText.textContent = '© 2023 PrestaPlus. Todos los derechos reservados.';
+footerText.style.color = '#ffffff';
+footer.appendChild(footerText);
+body.appendChild(footer);
