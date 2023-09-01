@@ -1,36 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Este evento asegura que el código se ejecute después de cargar completamente el DOM.
-
+document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
   const cuotasDisponibles = [3, 6, 9, 12, 18, 24];
 
+  // Elementos del formulario de cálculo
   const calculateButton = document.querySelector('.calculate-button');
   const prestamoInput = document.getElementById('prestamo-dinero');
   const cuotasInputs = document.querySelectorAll('.radio-input');
   const cuotaResult = document.getElementById('cuota-result');
 
+  // Evento para calcular la cuota
   calculateButton.addEventListener('click', async () => {
-    // Obtener el valor del préstamo
-    let prestamo = parseFloat(prestamoInput.value.replace(',', '.'));
+    const prestamo = parseFloat(prestamoInput.value.replace(',', '.'));
 
-    // Validar el valor del préstamo
-    if (isNaN(prestamo)) {
-      cuotaResult.textContent = "Por favor, ingrese un número válido para el monto del préstamo.";
+    // Validar el monto del préstamo
+    if (isNaN(prestamo) || prestamo < 4000 || prestamo > 10000000) {
+      cuotaResult.textContent = "Por favor, ingrese un monto válido (entre $4000 y $10,000,000 pesos).";
       return;
     }
 
-    if (prestamo < 4000) {
-      cuotaResult.textContent = "El monto mínimo de préstamo es de $4000 pesos.";
-      return;
-    }
-
-    // Establecer el monto máximo del préstamo
-    if (prestamo > 10000000) {
-      cuotaResult.textContent = "El monto máximo de préstamo es de $10,000,000 pesos.";
-      return;
-    }
-
-    // Obtener el número de cuotas seleccionado
     let mesesAPagar = 0;
     for (const cuotaInput of cuotasInputs) {
       if (cuotaInput.checked) {
@@ -41,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Validar el número de cuotas
     if (!cuotasDisponibles.includes(mesesAPagar)) {
-      cuotaResult.textContent = "Por favor, elija un número de cuotas válido. Elija 3, 6, 9, 12, 18 o 24 cuotas";
+      cuotaResult.textContent = "Por favor, elija un número de cuotas válido (3, 6, 9, 12, 18 o 24 cuotas).";
       return;
     }
 
@@ -54,9 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Calcular el monto total a pagar con interés
-    let totalAumentado = prestamo * (1 + (dolarBlueValue / 1000));
-    let interesAdicional = (mesesAPagar - 3) * 0.10;
-    let totalPagar = totalAumentado * (1 + interesAdicional);
+    const totalAumentado = prestamo * (1 + (dolarBlueValue / 1000));
+    const interesAdicional = (mesesAPagar - 3) * 0.10;
+    const totalPagar = totalAumentado * (1 + interesAdicional);
 
     // Mostrar resultados en la página
     cuotaResult.innerHTML = `Usted debe pagar: <span style="color: black">$${totalPagar.toFixed(2)}</span> pesos.<br>
@@ -64,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                              El pago mensual sería de: <span style="color: black">$${(totalPagar / mesesAPagar).toFixed(2)}</span> pesos.`;
   });
 
+  // Función para obtener el valor del dólar blue desde una API
   async function getDolarBlueValue() {
     try {
       const response = await fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales');
@@ -93,4 +81,5 @@ document.addEventListener('DOMContentLoaded', () => {
   footer.appendChild(footerText);
   body.appendChild(footer);
 });
+
 
